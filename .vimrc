@@ -28,5 +28,6 @@ set keywordprg=":help"
 
 set path+=**
 set wildmenu
+set wildignore+=*.pyc
 
 set so=3
