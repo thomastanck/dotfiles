@@ -24,10 +24,11 @@ syntax enable
 " key and Dvorak C being right on top of the right middle finger.
 noremap <C-c> <ESC>
 
-set keywordprg=":help"
+set keywordprg=":help" " c_K runs this command on the word under the cursor
 
-set path+=**
-set wildmenu
-set wildignore+=*.pyc
+set path+=** " :find recursively into subdirectories.
+set wildmenu " Show autocomplete options in a menu
+set wildignore+=*.pyc " Don't autocomplete to *.pyc files
 
-set so=3
+set so=3 " Show 3 lines of context when scrolling
+set rnu  " Show relative line numbers on the left of the buffer
