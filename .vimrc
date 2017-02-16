@@ -28,3 +28,5 @@ set keywordprg=":help"
 
 set path+=**
 set wildmenu
+
+set so=3
