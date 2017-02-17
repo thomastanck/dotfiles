@@ -22,7 +22,7 @@ syntax enable
 
 " ESC is pretty far away, C-c is easier to hit, especially with Capslock control
 " key and Dvorak C being right on top of the right middle finger.
-noremap <C-c> <ESC>
+"noremap <C-c> <ESC>
 
 set keywordprg=":help" " c_K runs this command on the word under the cursor
 
@@ -32,3 +32,13 @@ set wildignore+=*.pyc " Don't autocomplete to *.pyc files
 
 set so=3 " Show 3 lines of context when scrolling
 set rnu  " Show relative line numbers on the left of the buffer
+
+" Replay the q macro, which can be recorded with qq<macro>q
+nnoremap <Space> @q
+" Easier to type commands with enter key than with shift+;
+nnoremap <Enter> :
+nnoremap <Enter><Enter> :!
+
+" Reordering lines
+nnoremap <C-j> :m +1<Enter>
+nnoremap <C-k> :m -2<Enter>
