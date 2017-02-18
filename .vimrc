@@ -50,6 +50,11 @@ set wildignore+=*.pyc " Don't autocomplete to *.pyc files
 set scrolloff=3 " Show 3 lines of context when scrolling
 set relativenumber " Show relative line numbers on the left of the buffer
 
+set list
+set listchars=
+set listchars+=tab:>-
+set listchars+=trail:~
+
 " Replay the q macro, which can be recorded with qq<macro>q
 nnoremap <Space> @q
 " Easier to type commands with enter key than with shift+;
