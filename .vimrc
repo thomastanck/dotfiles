@@ -20,6 +20,16 @@ filetype plugin indent on    " required
 syntax enable
 "filetype plugin on
 
+" Disable arrow keys
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+" Disable H and L
+noremap h <NOP>
+noremap l <NOP>
+
 " ESC is pretty far away, C-c is easier to hit, especially with Capslock control
 " key and Dvorak C being right on top of the right middle finger.
 "noremap <C-c> <ESC>
@@ -36,6 +46,7 @@ set rnu  " Show relative line numbers on the left of the buffer
 " Replay the q macro, which can be recorded with qq<macro>q
 nnoremap <Space> @q
 " Easier to type commands with enter key than with shift+;
+nnoremap : <NOP>
 nnoremap <Enter> :
 nnoremap <Enter><Enter> :!
 
