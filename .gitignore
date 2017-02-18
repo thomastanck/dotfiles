@@ -1,0 +1,13 @@
+.DS_Store
+
+# Sublime text
+*.sublime-project
+*.sublime-workspace
+
+# Emacs swaps
+\#*\#
+*~
+.\#*
+
+# vim swap
+*.swp

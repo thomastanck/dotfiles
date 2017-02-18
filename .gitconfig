@@ -1,0 +1,12 @@
+[user]
+	email = thomastanck@gmail.com
+	name = Thomas Tan
+[core]
+	editor = nano
+	excludesfile = ~/.gitignore
+[push]
+	default = simple
+[diff]
+	algorithm = histogram
+[pull]
+	rebase = true
