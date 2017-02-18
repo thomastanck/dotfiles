@@ -47,8 +47,8 @@ set path+=** " :find recursively into subdirectories.
 set wildmenu " Show autocomplete options in a menu
 set wildignore+=*.pyc " Don't autocomplete to *.pyc files
 
-set so=3 " Show 3 lines of context when scrolling
-set rnu  " Show relative line numbers on the left of the buffer
+set scrolloff=3 " Show 3 lines of context when scrolling
+set relativenumber " Show relative line numbers on the left of the buffer
 
 " Replay the q macro, which can be recorded with qq<macro>q
 nnoremap <Space> @q
