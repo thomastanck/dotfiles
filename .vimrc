@@ -31,8 +31,8 @@ inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 
 " Disable H and L
-noremap h <NOP>
-noremap l <NOP>
+nnoremap h <NOP>
+nnoremap l <NOP>
 
 " ESC is pretty far away, C-c is easier to hit, especially with Capslock control
 " key and Dvorak C being right on top of the right middle finger.
@@ -40,6 +40,7 @@ noremap l <NOP>
 " Apparently in visual-block mode, C-c doesn't apply changes to the other
 " lines after using I.
 vmap <C-c> <Esc>
+imap <C-c> <Esc>
 
 set keywordprg=":help" " c_K runs this command on the word under the cursor
 
@@ -50,6 +51,7 @@ set wildignore+=*.pyc " Don't autocomplete to *.pyc files
 set scrolloff=3 " Show 3 lines of context when scrolling
 set relativenumber " Show relative line numbers on the left of the buffer
 
+" Add fancy stuff to make tabs look cool and show trailing spaces and stuff.
 set list
 set listchars=
 set listchars+=tab:>-
