@@ -20,6 +20,9 @@ filetype plugin indent on    " required
 syntax enable
 "filetype plugin on
 
+" Make backspace work
+set backspace=indent,eol,start
+
 " Disable arrow keys
 noremap <Up> <NOP>
 noremap <Down> <NOP>
