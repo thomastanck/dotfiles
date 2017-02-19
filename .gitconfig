@@ -2,7 +2,7 @@
 	email = thomastanck@gmail.com
 	name = Thomas Tan
 [core]
-	editor = nano
+	editor = vim +startinsert
 	excludesfile = ~/.gitignore
 [push]
 	default = simple
