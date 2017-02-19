@@ -61,6 +61,7 @@ set wildignore+=*.pyc " Don't autocomplete to *.pyc files
 
 set scrolloff=3 " Show 3 lines of context when scrolling
 set relativenumber " Show relative line numbers on the left of the buffer
+set number " Show line number of the current line
 
 " Add fancy stuff to make tabs look cool and show trailing spaces and stuff.
 set list
