@@ -27,6 +27,16 @@ set hidden
 " Make backspace work
 set backspace=indent,eol,start
 
+" Tab settings
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set noexpandtab
+
+" statusline
+set laststatus=2
+set statusline=%f\ %h%w%m%r\ %=%(%l,%c%V\ %=\ %P%)
+
 " Disable arrow keys
 noremap <Up> <NOP>
 noremap <Down> <NOP>
