@@ -36,6 +36,10 @@ inoremap <Right> <NOP>
 " Disable H and L
 nnoremap h <NOP>
 nnoremap l <NOP>
+" But enable them when it's really necessary,
+" e.g. when deleting the second character of a word in vimtutor...
+nnoremap <C-h> h
+nnoremap <C-l> l
 
 " ESC is pretty far away, C-c is easier to hit, especially with Capslock control
 " key and Dvorak C being right on top of the right middle finger.
