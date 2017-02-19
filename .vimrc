@@ -65,7 +65,7 @@ imap <C-c> <Esc>
 
 set keywordprg=":help" " c_K runs this command on the word under the cursor
 
-set path+=** " :find recursively into subdirectories.
+set path^=** " :find recursively into subdirectories.
 set wildmenu " Show autocomplete options in a menu
 set wildignore+=*.pyc " Don't autocomplete to *.pyc files
 
