@@ -90,3 +90,9 @@ nnoremap <Enter>f<Space> :find
 " Reordering lines
 nnoremap <C-j> :m +1<Enter>
 nnoremap <C-k> :m -2<Enter>
+
+" Code folding
+set foldmethod=indent
+set foldnestmax=10
+" set nofoldenable
+set foldlevel=0
