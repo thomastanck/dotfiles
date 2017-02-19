@@ -85,9 +85,10 @@ set listchars+=trail:~
 " Replay the q macro, which can be recorded with qq<macro>q
 nnoremap <Space> @q
 " Easier to type commands with enter key than with shift+;
-nnoremap : <NOP>
+" nnoremap : <NOP>
 nnoremap <Enter> :
 nnoremap <Enter><Enter> :!
+nnoremap <Enter><Enter><Enter> <Enter>
 nnoremap <Enter>f<Space> :find 
 
 " Reordering lines
