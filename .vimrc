@@ -66,6 +66,7 @@ nnoremap <Space> @q
 nnoremap : <NOP>
 nnoremap <Enter> :
 nnoremap <Enter><Enter> :!
+nnoremap <Enter>f<Space> :find 
 
 " Reordering lines
 nnoremap <C-j> :m +1<Enter>
