@@ -20,6 +20,9 @@ filetype plugin indent on    " required
 syntax enable
 "filetype plugin on
 
+" set hidden lets you close (as in hide) buffers without saving them
+set hidden
+
 " Make backspace work
 set backspace=indent,eol,start
 
