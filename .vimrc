@@ -40,6 +40,12 @@ set noexpandtab
 set laststatus=2
 set statusline=%f\ %h%w%m%r\ %=%(%l,%c%V\ %=\ %P%)
 
+" Search options
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+
 " Disable arrow keys
 noremap <Up> <NOP>
 noremap <Down> <NOP>
