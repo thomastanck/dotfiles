@@ -3,6 +3,7 @@
 
 set nocompatible
 filetype off
+set modelines=0
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
