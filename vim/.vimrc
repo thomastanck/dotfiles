@@ -19,7 +19,8 @@ Plugin 'surround.vim' " Delete/change/add parentheses/quotes/XML-tags/much more 
 Plugin 'repeat.vim' " Use . command with supported plugins
 
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+
+Plugin 'tpope/vim-fugitive' " Git integration
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -31,6 +32,9 @@ syntax enable
 " vim-airline
 set t_Co=256
 let g:airline_powerline_fonts = 1
+
+let g:airline#extensions#hunks#enabled=0
+let g:airline#extensions#branch#enabled=1
 
 " set hidden lets you close (as in hide) buffers without saving them
 set hidden
@@ -53,6 +57,8 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
+noh " Plugins like to activate search somehow...
+
 set keywordprg=":help" " c_K runs this command on the word under the cursor
 
 set path^=** " :find recursively into subdirectories.
