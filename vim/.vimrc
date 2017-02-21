@@ -17,12 +17,19 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'surround.vim' " Delete/change/add parentheses/quotes/XML-tags/much more with ease
 Plugin 'repeat.vim' " Use . command with supported plugins
 
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 syntax enable
 "filetype plugin on
+
+" Make vim-airline colours work
+set t_Co=256
+let g:airline_powerline_fonts = 1
 
 " set hidden lets you close (as in hide) buffers without saving them
 set hidden
