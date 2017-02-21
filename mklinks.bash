@@ -8,6 +8,6 @@ if [ -z "$MY_PATH" ] ; then
   exit 1  # fail
 fi
 
-ln -s "$MY_PATH/.gitignore" ~/.gitignore
-ln -s "$MY_PATH/.gitconfig" ~/.gitconfig
-ln -s "$MY_PATH/.vimrc" ~/.vimrc
+ln -s "$MY_PATH/git/.gitignore" ~/.gitignore
+ln -s "$MY_PATH/git/.gitconfig" ~/.gitconfig
+ln -s "$MY_PATH/vim/.vimrc" ~/.vimrc
