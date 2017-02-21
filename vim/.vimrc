@@ -1,6 +1,7 @@
 " Run :so % while editing this file or
 " run :so ~/.vimrc to load the changes into vim.
 
+" Absolute bare minimum
 set nocompatible
 filetype off
 set modelines=0
@@ -27,7 +28,7 @@ filetype plugin indent on    " required
 syntax enable
 "filetype plugin on
 
-" Make vim-airline colours work
+" vim-airline
 set t_Co=256
 let g:airline_powerline_fonts = 1
 
@@ -52,6 +53,27 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
+set keywordprg=":help" " c_K runs this command on the word under the cursor
+
+set path^=** " :find recursively into subdirectories.
+set wildmenu " Show autocomplete options in a menu
+set wildignore+=*.pyc " Don't autocomplete to *.pyc files
+
+set scrolloff=3 " Show 3 lines of context when scrolling
+set relativenumber " Show relative line numbers on the left of the buffer
+set number " Show line number of the current line
+
+" Add fancy stuff to make tabs look cool and show trailing spaces and stuff.
+set list
+set listchars=
+set listchars+=tab:>-
+set listchars+=trail:~
+
+" Code folding
+set foldmethod=indent
+set foldnestmax=10
+" set nofoldenable
+set foldlevel=0
 
 " Disable arrow keys
 noremap <Up> <NOP>
@@ -79,22 +101,6 @@ nnoremap <C-l> l
 vmap <C-c> <Esc>
 imap <C-c> <Esc>
 
-set keywordprg=":help" " c_K runs this command on the word under the cursor
-
-set path^=** " :find recursively into subdirectories.
-set wildmenu " Show autocomplete options in a menu
-set wildignore+=*.pyc " Don't autocomplete to *.pyc files
-
-set scrolloff=3 " Show 3 lines of context when scrolling
-set relativenumber " Show relative line numbers on the left of the buffer
-set number " Show line number of the current line
-
-" Add fancy stuff to make tabs look cool and show trailing spaces and stuff.
-set list
-set listchars=
-set listchars+=tab:>-
-set listchars+=trail:~
-
 " Replay the q macro, which can be recorded with qq<macro>q
 nnoremap <Space> @q
 " Easier to type commands with enter key than with shift+;
@@ -107,9 +113,3 @@ nnoremap <Enter>f<Space> :find
 " Reordering lines
 nnoremap <C-j> :m +1<Enter>
 nnoremap <C-k> :m -2<Enter>
-
-" Code folding
-set foldmethod=indent
-set foldnestmax=10
-" set nofoldenable
-set foldlevel=0
