@@ -75,8 +75,8 @@ set number " Show line number of the current line
 " Add fancy stuff to make tabs look cool and show trailing spaces and stuff.
 set list
 set listchars=
-set listchars+=tab:▶\ 
-set listchars+=trail:※
+set listchars+=tab:>-
+set listchars+=trail:~
 "	hah	haha	ha			hah   
 
 " Code folding
