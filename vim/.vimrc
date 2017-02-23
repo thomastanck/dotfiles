@@ -39,6 +39,9 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#hunks#enabled=0
 let g:airline#extensions#branch#enabled=1
 
+" set colour scheme
+colorscheme desert
+
 " set hidden lets you close (as in hide) buffers without saving them
 set hidden
 
