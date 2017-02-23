@@ -11,3 +11,4 @@ fi
 ln -s "$MY_PATH/git/.gitignore" ~/.gitignore
 ln -s "$MY_PATH/git/.gitconfig" ~/.gitconfig
 ln -s "$MY_PATH/vim/.vimrc" ~/.vimrc
+ln -s "$MY_PATH/vim/.vim/usr" ~/.vim/usr
