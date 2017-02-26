@@ -8,14 +8,6 @@ inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 
-" Disable H and L
-nnoremap h <NOP>
-nnoremap l <NOP>
-" But enable them when it's really necessary,
-" e.g. when deleting the second character of a word in vimtutor...
-nnoremap <C-h> h
-nnoremap <C-l> l
-
 " Make j and k work on visual lines.
 nnoremap k gk
 nnoremap j gj
