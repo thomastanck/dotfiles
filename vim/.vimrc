@@ -25,6 +25,7 @@ Plugin 'vim-airline/vim-airline'
 
 Plugin 'tpope/vim-fugitive' " Git integration
 Plugin 'airblade/vim-gitgutter'
+Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
