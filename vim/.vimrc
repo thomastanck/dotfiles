@@ -24,6 +24,7 @@ Plugin 'repeat.vim' " Use . command with supported plugins
 Plugin 'vim-airline/vim-airline'
 
 Plugin 'tpope/vim-fugitive' " Git integration
+Plugin 'airblade/vim-gitgutter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
