@@ -32,6 +32,9 @@ nnoremap <Enter> :
 nnoremap <Enter><Enter> :!
 nnoremap <Enter><Enter><Enter> <Enter>
 nnoremap <Enter>f<Space> :find 
+vnoremap <Enter> :
+vnoremap <Enter><Enter> :!
+vnoremap <Enter><Enter><Enter> <Enter>
 
 " Reordering lines
 nnoremap <C-j> :m +1<Enter>
