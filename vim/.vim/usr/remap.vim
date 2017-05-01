@@ -1,3 +1,5 @@
+:let mapleader = ","
+
 " Disable arrow keys
 noremap <Up> <NOP>
 noremap <Down> <NOP>
