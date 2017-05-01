@@ -26,6 +26,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-fugitive' " Git integration
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -43,6 +45,11 @@ let g:airline_powerline_fonts = 1
 
 let g:airline#extensions#hunks#enabled=0
 let g:airline#extensions#branch#enabled=1
+
+" NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+let NERDTreeShowHidden=1
 
 " set colour scheme
 colorscheme desert

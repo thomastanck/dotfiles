@@ -39,3 +39,6 @@ vnoremap <Enter><Enter><Enter> <Enter>
 " Reordering lines
 nnoremap <C-j> :m +1<Enter>
 nnoremap <C-k> :m -2<Enter>
+
+" Toggle NERD Tree
+nnoremap <silent> <Leader>n :NERDTreeFind<CR>
