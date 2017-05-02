@@ -24,6 +24,9 @@ nnoremap gj j
 vmap <C-c> <Esc>
 imap <C-c> <Esc>
 
+" Fast way of removing those annoying highlights
+nnoremap <C-c> :noh<Enter><C-c>
+
 " Replay the q macro, which can be recorded with qq<macro>q
 nnoremap <Space> @q
 " Easier to type commands with enter key than with shift+;
