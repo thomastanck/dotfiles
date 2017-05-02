@@ -40,8 +40,14 @@ vnoremap <Enter><Enter> :!
 vnoremap <Enter><Enter><Enter> <Enter>
 
 " Reordering lines
-nnoremap <C-j> :m +1<Enter>
-nnoremap <C-k> :m -2<Enter>
+"nnoremap <C-j> :m +1<Enter>
+"nnoremap <C-k> :m -2<Enter>
+
+" Switching between windows
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
 
 " Toggle NERD Tree
 nnoremap <silent> <Leader>n :NERDTreeFind<CR>
