@@ -10,6 +10,12 @@ inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 
+" Fast split resizing
+nnoremap <Up> <C-w>+
+nnoremap <Down> <C-w>-
+nnoremap <Left> <C-w><
+nnoremap <Right> <C-w>>
+
 " Make j and k work on visual lines.
 nnoremap k gk
 nnoremap j gj
