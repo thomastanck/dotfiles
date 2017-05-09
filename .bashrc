@@ -29,7 +29,7 @@
 
 # Source private stuff
 # Also sets $computer and $platform
-[ -f "~/.bashrc-private.bash" ] && source ~/.bashrc-private.bash
+[ -f "$HOME/.bashrc-private.bash" ] && source ~/.bashrc-private.bash
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -47,7 +47,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-[ -f "~/.git-completion.bash" ] && source ~/.git-completion.bash
+[ -f "$HOME/.git-completion.bash" ] && source ~/.git-completion.bash
 
 alias cd="cd -P"
 if [[ $computer == "pi" ]]; then
