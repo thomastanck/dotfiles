@@ -53,7 +53,7 @@ alias cd="cd -P"
 if [[ $computer == "pi" ]]; then
 	alias fuckthis="rm"; alias rm="trash-put"; alias trash-restore="restore-trash"
 fi
-alias ls="gls -hlaF --color=always"
+alias ls="ls -hlaF --color=always"
 alias pupp="pbpaste | curl -s -T - https://p.iotek.org | tr -d '\n' | pbcopy ; echo -ne '\007'"
 fupp() {
 	curl -s -T - https://p.iotek.org < "$1" | tr -d '\n' | pbcopy ; echo -ne '\007'
