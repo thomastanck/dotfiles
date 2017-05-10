@@ -209,7 +209,9 @@ if [[ $computer == "pi" ]]; then
 	cowsay "Moo moo moo, welcome back pi."
 elif [[ $computer == "gracefu" ]]; then
 	cowsay "Yo wassap."
-elif [[ $computer == "unknown" ]]; then
+elif [[ $computer == "pysweeper" ]]; then
+	cowsay "Sweep sweep... sigh, there's so much cleaning to do..."
+else
 	cowsay "Serious business only."
 fi
 
