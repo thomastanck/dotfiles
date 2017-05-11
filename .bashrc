@@ -224,6 +224,13 @@ if [[ $computer == "pi" ]]; then
 	fi
 fi
 
+if [[ $computer == "pysweeper" ]]; then
+	if command -v tmux>/dev/null; then
+		[[ ! $TERM =~ screen ]] && [ -z $TMUX ] &&
+		tmux -2 new -A -s sweep
+	fi
+fi
+
 ###############################################################################
 # Path                                                              SET_UP_PATH
 ###############################################################################
