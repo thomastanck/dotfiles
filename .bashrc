@@ -247,6 +247,7 @@ fi
 
 # Setup Go
 export GOPATH=$HOME/go
+export PATH=/usr/local/go/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
 
 # Setup Rust/Cargo
