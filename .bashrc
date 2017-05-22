@@ -63,6 +63,7 @@ if [[ $platform != "osx" ]]; then
 	alias crontab="crontab -i"
 fi
 
+alias rand="LC_ALL=C tr -dc A-Za-z0-9_- < /dev/urandom | head -c $1"
 alias make="make -j $(getconf _NPROCESSORS_ONLN)"
 
 ###############################################################################
