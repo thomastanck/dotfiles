@@ -63,6 +63,8 @@ if [[ $platform != "osx" ]]; then
 	alias crontab="crontab -i"
 fi
 
+alias make="make -j $(getconf _NPROCESSORS_ONLN)"
+
 ###############################################################################
 # Make terminal working (locale)                               WORKING_TERMINAL
 ###############################################################################
