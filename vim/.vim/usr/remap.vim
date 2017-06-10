@@ -57,3 +57,7 @@ nnoremap <C-l> <C-w>l
 
 " Toggle NERD Tree
 nnoremap <silent> <Leader>n :NERDTreeFind<CR>
+
+" Insert ISO 8601 UTC timestamp
+nnoremap <silent> <Leader>T a<C-r>=substitute(system('date -u +%FT%TZ'), '[\r\n]*$', '', '')<CR><Esc>
+nnoremap <silent> <Leader>t c9iw<C-r>=substitute(system('date -u +%FT%TZ'), '[\r\n]*$', '', '')<CR><Esc>9b
