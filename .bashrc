@@ -203,7 +203,7 @@ fi
 
 export WORKON_HOME=$HOME/.virtualenvs # The default
 export PROJECT_HOME=$HOME/python
-source /usr/local/bin/virtualenvwrapper_lazy.sh
+source $(which virtualenvwrapper_lazy.sh)
 
 ###############################################################################
 # cowsay                                                             COWSAY_FUN
