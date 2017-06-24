@@ -1,0 +1,3 @@
+if [[ $platform != "osx" ]]; then
+	alias crontab="crontab -i"
+fi

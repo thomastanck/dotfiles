@@ -1,0 +1,3 @@
+if [[ $computer == "pi" ]]; then
+	alias fuckthis="rm"; alias rm="trash-put"; alias trash-restore="restore-trash"
+fi
