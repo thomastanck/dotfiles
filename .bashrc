@@ -137,6 +137,11 @@ fi
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
+# Automatic window transparency for the XPS 15
+if [[ $computer == "xps15" ]]; then
+	transset-df --id "$WINDOWID" 0.85 > /dev/null
+fi
+
 ###############################################################################
 # Bash history settings                                        HISTORY_SETTINGS
 ###############################################################################
