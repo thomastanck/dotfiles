@@ -99,8 +99,10 @@ set listchars+=trail:~
 " Code folding
 set foldmethod=indent
 set foldnestmax=10
-" set nofoldenable
+"set nofoldenable
 set foldlevel=0
+" Open files with all folds opened by default
+au BufRead * normal zR
 
 " Source remappings
 source ~/.vim/usr/remap.vim
