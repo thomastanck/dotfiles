@@ -21,7 +21,7 @@
 ###############################################################################
 
 # If not running interactively, don't do anything
-[ -z "$PS1" ] && [ $1 != 'force' ] && return
+[ -z "$PS1" ] && [ "$1" != 'force' ] && return
 
 ###############################################################################
 # Source aliases and completion                              SOURCE_OTHER_FILES
