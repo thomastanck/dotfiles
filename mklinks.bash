@@ -9,16 +9,16 @@ if [ -z "$MY_PATH" ] ; then
 fi
 
 # Git
-[ -h ~/.gitignore ] || ln -s "$MY_PATH/git/.gitignore" ~/.gitignore
-[ -h ~/.gitconfig ] || ln -s "$MY_PATH/git/.gitconfig" ~/.gitconfig
+ln -sfn "$MY_PATH/git/gitignore" ~/.gitignore
+ln -sfn "$MY_PATH/git/gitconfig" ~/.gitconfig
 
 # Vim
 mkdir -p ~/.vim
-[ -h ~/.vimrc ] || ln -s "$MY_PATH/vim/.vimrc" ~/.vimrc
-[ -h ~/.vim/usr ] || ln -s "$MY_PATH/vim/.vim/usr" ~/.vim/usr
+ln -sfn "$MY_PATH/vim/vimrc" ~/.vimrc
+ln -sfn "$MY_PATH/vim/usr" ~/.vim/usr
 
 # Shell
 [ -h ~/.bashrc ] || mv ~/.bashrc ~/.bashrc-old
 [ -h ~/.profile ] || mv ~/.profile ~/.profile-old
-[ -h ~/.bashrc ] || ln -s "$MY_PATH/.bashrc" ~/.bashrc
-[ -h ~/.profile ] || ln -s "$MY_PATH/.profile" ~/.profile
+ln -sfn "$MY_PATH/sh/bashrc" ~/.bashrc
+ln -sfn "$MY_PATH/sh/profile" ~/.profile

@@ -1,1 +1,1 @@
-vim/.vim/usr/remap.vim
+vim/usr/remap.vim
