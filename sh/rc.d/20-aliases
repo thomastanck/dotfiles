@@ -1,0 +1,36 @@
+###############################################################################
+# Source aliases and completion                              SOURCE_OTHER_FILES
+###############################################################################
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+[ -f "$HOME/.git-completion.bash" ] && source ~/.git-completion.bash
+
+alias cd="cd -P"
+if [[ $computer == "pi" ]]; then
+	alias fuckthis="rm"; alias rm="trash-put"; alias trash-restore="restore-trash"
+fi
+alias ls="ls -hlF --color=always"
+alias la="ls -hlaF --color=always"
+alias pupp="pbpaste | curl -s -T - https://p.iotek.org | tr -d '\n' | pbcopy ; echo -ne '\007'"
+fupp() {
+	curl -s -T - https://p.iotek.org < "$1" | tr -d '\n' | pbcopy ; echo -ne '\007'
+}
+alias upp="curl -s -T - https://p.iotek.org | tr -d '\n' | pbcopy ; echo -ne '\007'"
+if [[ $platform != "osx" ]]; then
+	alias crontab="crontab -i"
+fi
+
+alias rand="LC_ALL=C tr -dc A-Za-z0-9_- < /dev/urandom | head -c $1"
+alias easyrand="LC_ALL=C tr -dc a-z < /dev/urandom | head -c $1"
+alias npass="easyrand 20 | pbcopy"
+alias make="make -j $(getconf _NPROCESSORS_ONLN)"
+
+alias chmodx="chmod u+x"

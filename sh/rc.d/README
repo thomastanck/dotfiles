@@ -1,0 +1,14 @@
+###########################
+### Documentation for rc.d
+###########################
+#
+# 0x: run first!
+# 1x: setting PATH
+# 2x: sourcing other files
+# 3x: making the terminal work properly
+# 4x: making the terminal look pretty
+# 5x: running programs / program specific configuration
+# 6x: OS specific tweaks
+# 7x: tweaking shell behaviour
+#
+###########################

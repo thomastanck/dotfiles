@@ -1,0 +1,24 @@
+###############################################################################
+# Homebrew stuff (OSX specific)                                    OSX_HOMEBREW
+###############################################################################
+
+if [[ $platform == "osx" ]]; then
+	# Add all the coreutils to the beginning of path...
+	export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+	# Unless it's sbin stuff, then we use the osx local sbin first
+	export PATH="/usr/local/sbin:$PATH"
+
+	# Use GNU manpages
+	MANPATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:$MANPATH
+
+	# Use Homebrew's keg-only-and-not-linked binaries for login shells by us
+	PATH="$(echo /usr/local/opt/*/bin | tr ' ' ':'):$PATH"
+
+	# Use Homebrew's gcc-5 (what happened to 5? why is it 6 now?) (idk...)
+	export CC=/usr/local/bin/gcc-6
+	export CXX=/usr/local/bin/g++-6
+	export CPP=/usr/local/bin/cpp-6
+	export LD=/usr/local/bin/gcc-6
+	alias gcc="cc"
+	alias g++="c++"
+fi

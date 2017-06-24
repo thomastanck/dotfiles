@@ -1,0 +1,11 @@
+###############################################################################
+# Make terminal working (locale)                               WORKING_TERMINAL
+###############################################################################
+
+# Set locale
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+export LANGUAGE="en_US:en"
+
+# Let you send C-s without stopping output (for text editors like vim!)
+stty -ixon
