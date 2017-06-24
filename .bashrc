@@ -69,6 +69,8 @@ alias easyrand="LC_ALL=C tr -dc a-z < /dev/urandom | head -c $1"
 alias npass="easyrand 20 | pbcopy"
 alias make="make -j $(getconf _NPROCESSORS_ONLN)"
 
+alias chmodx="chmod u+x"
+
 ###############################################################################
 # Make terminal working (locale)                               WORKING_TERMINAL
 ###############################################################################
