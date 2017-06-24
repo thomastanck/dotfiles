@@ -1,7 +1,4 @@
-###############################################################################
-# Python virtualenvwrapper                                 PY_VIRTUALENVWRAPPER
-###############################################################################
-
+# python virtualenvwrapper set up
 export WORKON_HOME=$HOME/.virtualenvs # The default
 export PROJECT_HOME=$HOME/python
 source $(which virtualenvwrapper_lazy.sh)

@@ -1,6 +1,4 @@
-###############################################################################
-# Make terminal pretty (colours)                                PRETTY_TERMINAL
-###############################################################################
+# Make terminal pretty
 
 # tmux -2 forces tmux to assume the terminal supports 256 colours
 alias tmux="tmux -2"
@@ -42,13 +40,10 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
+# Get grep colours
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
 # Get ls colours (at least on osx)
 export CLICOLOR=1

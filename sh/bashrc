@@ -2,37 +2,20 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-###############################################################################
-# Table of contents
-###############################################################################
 
-# 1)  Source aliases and completion                          SOURCE_OTHER_FILES
-# 2)  Make terminal working (locale)                           WORKING_TERMINAL
-# 3)  Make terminal pretty (colours)                            PRETTY_TERMINAL
-# 4)  Bash history settings                                    HISTORY_SETTINGS
-# 5)  Homebrew stuff (OSX specific)                                OSX_HOMEBREW
-# 6)  Tweak behaviour of shell                                  SHELL_BEHAVIOUR
-# 7)  Language specific stuff
-#     8a)  Python virtualenvwrapper                        PY_VIRTUALENVWRAPPER
-# 8)  cowsay                                                         COWSAY_FUN
-# 9)  Open up tmux (pi specific)                                        PI_TMUX
-# 10) Path                                                          SET_UP_PATH
-
-###############################################################################
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && [ "$1" != 'force' ] && return
 
-###############################################################################
-# Source aliases and completion                              SOURCE_OTHER_FILES
-###############################################################################
+
 
 # Source private stuff
 # Also sets $computer and $platform
 [ -f "$HOME/.bashrc-private.bash" ] && source ~/.bashrc-private.bash
 
-# Source everything in dotfiles/sh/rc.d/
 
+
+# Source everything in dotfiles/sh/rc.d/
 for f in $HOME/dotfiles/sh/rc.d/*; do
 	source $f
 done

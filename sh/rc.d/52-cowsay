@@ -1,7 +1,4 @@
-###############################################################################
-# cowsay                                                             COWSAY_FUN
-###############################################################################
-
+# cowsay fun
 if [[ $computer == "pi" ]]; then
 	cowsay "Moo moo moo, welcome back pi."
 elif [[ $computer == "gracefu" ]]; then

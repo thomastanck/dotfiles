@@ -1,6 +1,4 @@
-###############################################################################
-# Homebrew stuff (OSX specific)                                    OSX_HOMEBREW
-###############################################################################
+# Homebrew stuff (OSX specific)
 
 if [[ $platform == "osx" ]]; then
 	# Add all the coreutils to the beginning of path...

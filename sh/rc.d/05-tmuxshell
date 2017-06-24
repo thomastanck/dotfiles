@@ -1,7 +1,4 @@
-###############################################################################
-# Open up tmux (pi specific)                                            PI_TMUX
-###############################################################################
-
+# Open tmux sessions automatically on servers
 if [[ $computer == "pi" ]]; then
 	if command -v tmux>/dev/null; then
 		[[ ! $TERM =~ screen ]] && [ -z $TMUX ] &&
