@@ -1,0 +1,12 @@
+cddots() {
+	cd "$1/$2"
+}
+dots=".."
+ups="../"
+for i in {1..20}; do
+	alias "$dots"="cddots $ups"
+	dots="$dots."
+	ups="$ups../"
+done
+dots=""
+ups=""
