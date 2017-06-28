@@ -11,3 +11,8 @@ if [ -n "$BASH_VERSION" ]; then
 		. "$HOME/.bashrc"
 	fi
 fi
+
+# Source everything in dotfiles/sh/profile.d/
+for f in $HOME/dotfiles/sh/profile.d/*; do
+	source "$f"
+done
