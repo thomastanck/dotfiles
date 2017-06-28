@@ -59,6 +59,9 @@ colorscheme desert
 " set hidden lets you close (as in hide) buffers without saving them
 set hidden
 
+" Enable mouse!
+set mouse=nv
+
 " Make backspace work
 set backspace=indent,eol,start
 
