@@ -1,10 +1,62 @@
 cddots() {
 	cd "$1/$2"
 }
+
+_cddots_completion() {
+	local nargs ndots arg start_dir arg_dir
+	COMPREPLY=()
+	nargs=${#COMP_WORDS[@]}
+	ndots=${#COMP_WORDS[0]}
+	arg="${COMP_WORDS[1]}"
+
+	if [[ $nargs > 2 ]]; then
+		# Don't deal with malformed commands
+		return 1
+	fi
+
+	# Where our new current directory should be after running the cddots command
+	# $ ...
+	# means startdir="../../"
+	start_dir=""
+	for ((i=1;i<ndots;i++)); do
+		start_dir="${start_dir}../"
+	done
+
+	# Where we should look for completions.
+	# $ .. do $ means arg_dir="."
+	# $ .. dotfiles/s $ means arg_dir="dotfiles"
+	if [ $(echo "$arg" | grep -e '/') ]; then
+		arg_dir="$(echo "$arg" | sed -e 's_\(.*\)/.*_\1_')"
+	else
+		# We aren't in a dir already, so we start from .
+		arg_dir="."
+	fi
+
+	# Look 2 levels starting from where we are
+	# e.g.
+	# $ .. do
+	# should look in ../ for directories (compgen will filter out all directories that don't start with 'do') and
+	# $ .. dotfiles/s
+	# should look in ../dotfiles/ for directories (compgen will help us filter)
+
+	# We search 2 levels deep so if there are any directories with subdirectories in there, they'll be included in the completion
+	# That way, if a directory is a "dead end" e.g. ~/bin, it'll complete as ".. bin " and stop the completion
+	# but if there are further subdirectories, e.g. ~/dotfiles and ~/dotfiles/sh both exist, it'll complete as ".. dotfiles/" and allow further completions
+
+	# Finally we do a simple `sed` to remove leading ./ which shows up when arg_dir="."
+	# and insert a trailing / so that we can transition from one completion into the next easily
+	COMPREPLY=( $(compgen -W "$( \
+						cd "$start_dir" && \
+						command find "$arg_dir" -maxdepth 2 -mindepth 1 -type d | \
+						sed -e 's_^\./__' -e 's_$_/_')" \
+					-- "$arg" ) )
+}
+
 dots=".."
 ups="../"
 for i in {1..20}; do
 	alias "$dots"="cddots $ups"
+	complete -F _cddots_completion "$dots"
 	dots="$dots."
 	ups="$ups../"
 done
