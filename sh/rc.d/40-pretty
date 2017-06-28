@@ -50,6 +50,6 @@ export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 # Automatic window transparency for the XPS 15
-if [[ $computer == "xps15" ]]; then
-	[ -z "$WINDOWID" ] || transset-df --id "$WINDOWID" 0.85 > /dev/null
-fi
+#if [[ $computer == "xps15" ]]; then
+#	[ -z "$WINDOWID" ] || transset-df --id "$WINDOWID" 0.85 > /dev/null
+#fi
