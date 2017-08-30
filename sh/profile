@@ -13,6 +13,8 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 # Source everything in dotfiles/sh/profile.d/
-for f in $HOME/dotfiles/sh/profile.d/*; do
-	source "$f"
-done
+if [ -d "$HOME/dotfiles/sh/profile.d" ]; then
+	for f in $HOME/dotfiles/sh/profile.d/*; do
+		source "$f"
+	done
+fi

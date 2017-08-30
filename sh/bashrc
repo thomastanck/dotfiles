@@ -16,6 +16,8 @@
 
 
 # Source everything in dotfiles/sh/rc.d/
-for f in $HOME/dotfiles/sh/rc.d/*; do
-	source "$f"
-done
+if [ -d "$HOME/dotfiles/sh/rc.d" ]; then
+	for f in $HOME/dotfiles/sh/rc.d/*; do
+		source "$f"
+	done
+fi
