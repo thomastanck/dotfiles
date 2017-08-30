@@ -9,31 +9,34 @@ set modelines=0
 scriptencoding utf-8
 set encoding=utf-8
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" Only try to load plugis if not root
+if system('whoami | tr -d [:space:]') != 'root'
+	" set the runtime path to include Vundle and initialize
+	set rtp+=~/.vim/bundle/Vundle.vim
+	call vundle#begin()
+	" alternatively, pass a path where Vundle should install plugins
+	"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+	" let Vundle manage Vundle, required
+	Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'surround.vim' " Delete/change/add parentheses/quotes/XML-tags/much more with ease
-Plugin 'repeat.vim' " Use . command with supported plugins
+	Plugin 'surround.vim' " Delete/change/add parentheses/quotes/XML-tags/much more with ease
+	Plugin 'repeat.vim' " Use . command with supported plugins
 
-Plugin 'vim-airline/vim-airline'
+	Plugin 'vim-airline/vim-airline'
 
-Plugin 'tpope/vim-fugitive' " Git integration
-Plugin 'airblade/vim-gitgutter'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+	Plugin 'tpope/vim-fugitive' " Git integration
+	Plugin 'airblade/vim-gitgutter'
+	Plugin 'Valloric/YouCompleteMe'
+	Plugin 'scrooloose/nerdtree'
+	Plugin 'Xuyuanp/nerdtree-git-plugin'
 
-Plugin 'fatih/vim-go'
+	Plugin 'fatih/vim-go'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+	" All of your Plugins must be added before the following line
+	call vundle#end()            " required
+	filetype plugin indent on    " required
+endif
 
 syntax enable
 "filetype plugin on
