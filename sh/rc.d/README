@@ -3,7 +3,7 @@
 ##############################
 #
 # 0x: run first!
-# 1x: setting PATH
+# 1x: setting PATH and other envvars
 # 2x: sourcing other files
 # 3x: making the terminal work properly
 # 4x: making the terminal look pretty
