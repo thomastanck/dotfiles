@@ -1,1 +1,3 @@
-alias make="make -j $(getconf _NPROCESSORS_ONLN)"
+if [[ $platform != "solaris" ]]; then
+	alias make="make -j $(getconf _NPROCESSORS_ONLN)"
+fi
