@@ -24,6 +24,9 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+if [[ $platform == "osx" && $TERM == "xterm-termite" ]]; then
+  color_prompt=yes
+fi
 if [[ $platform == "solaris" && $TERM == "xterm-termite" ]]; then
   color_prompt=yes
 fi
