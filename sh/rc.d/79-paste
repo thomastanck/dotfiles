@@ -1,5 +1,5 @@
-alias pupp="pbpaste | curl -s -T - https://p.iotek.org | tr -d '\n' | pbcopy ; echo -ne '\007'"
+alias pupp="mclip paste | curl -s -T - https://p.iotek.org | tr -d '\n' | mclip ; echo -ne '\007'"
 fupp() {
-	curl -s -T - https://p.iotek.org < "$1" | tr -d '\n' | pbcopy ; echo -ne '\007'
+	curl -s -T - https://p.iotek.org < "$1" | tr -d '\n' | mclip ; echo -ne '\007'
 }
-alias upp="curl -s -T - https://p.iotek.org | tr -d '\n' | pbcopy ; echo -ne '\007'"
+alias upp="curl -s -T - https://p.iotek.org | tr -d '\n' | mclip ; echo -ne '\007'"
