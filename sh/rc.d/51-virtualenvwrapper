@@ -2,5 +2,8 @@
 if command -v virtualenvwrapper_lazy.sh >/dev/null; then
 	export WORKON_HOME=$HOME/.virtualenvs # The default
 	export PROJECT_HOME=$HOME/python
+	if [[ $computer = "xps15" ]]; then
+		export PROJECT_HOME=$HOME
+	fi
 	source $(which virtualenvwrapper_lazy.sh)
 fi
