@@ -24,12 +24,15 @@ if system('whoami | tr -d [:space:]') != 'root'
 	Plugin 'repeat.vim' " Use . command with supported plugins
 
 	Plugin 'vim-airline/vim-airline'
+	Plugin 'vim-airline/vim-airline-themes'
 
 	Plugin 'tpope/vim-fugitive' " Git integration
 	Plugin 'airblade/vim-gitgutter'
 	Plugin 'Valloric/YouCompleteMe'
 	Plugin 'scrooloose/nerdtree'
 	Plugin 'Xuyuanp/nerdtree-git-plugin'
+	Plugin 'altercation/vim-colors-solarized'
+
 
 	Plugin 'fatih/vim-go'
 
@@ -47,6 +50,7 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/
 " vim-airline
 set t_Co=256
 let g:airline_powerline_fonts = 1
+let g:airline_theme='solarized'
 
 let g:airline#extensions#hunks#enabled=0
 let g:airline#extensions#branch#enabled=1
@@ -57,7 +61,9 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let NERDTreeShowHidden=1
 
 " set colour scheme
-colorscheme desert
+set background=light
+colorscheme solarized
+" colorscheme desert
 
 " set hidden lets you close (as in hide) buffers without saving them
 set hidden
