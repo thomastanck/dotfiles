@@ -33,6 +33,7 @@ if system('whoami | tr -d [:space:]') != 'root'
 	Plugin 'Xuyuanp/nerdtree-git-plugin'
 	Plugin 'altercation/vim-colors-solarized'
 
+	Plugin 'tpope/vim-commentary'
 
 	Plugin 'fatih/vim-go'
 

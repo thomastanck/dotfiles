@@ -1,6 +1,7 @@
 [user]
-	email = thomastanck@gmail.com
+	email = 829070+thomastanck@users.noreply.github.com
 	name = Thomas Tan
+	signingkey = B637BBF6D802013F5D1203CBA040BC34D269C351
 [core]
 	editor = vim +startinsert
 	excludesfile = ~/.gitignore
@@ -10,3 +11,5 @@
 	algorithm = histogram
 [pull]
 	rebase = true
+[commit]
+	gpgsign = true
