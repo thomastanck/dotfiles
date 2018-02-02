@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Creates a .html file in the working directory that loads every file in <img> tags (i.e. read your manga quick and easy)
+
+rm -r reader
+rm \!reader.html
+mkdir reader
+contents=$(python -c 'import os, json; print(json.dumps({"title": os.getcwd(), "contents": sorted(os.listdir())}, indent=4))')
+printf "%s" "$contents" > reader/contents.json
+cp ~/dotfiles/bin/makereaderassets/\!reader.html \!reader.html
+ln -s ~/dotfiles/bin/makereaderassets/jquery-3.2.1.min.js reader/jquery.min.js
+ln -s ~/dotfiles/bin/makereaderassets/style.css reader/style.css
+cp ~/dotfiles/bin/makereaderassets/config.json reader/config.json

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# You need sound files in ~/bin/sounds
+# I got mine from my old macbook cause I liked their sound effects.
+# You can probably find those sound effects via other means :eyes:
+
+
+if [[ -z "$2" ]]; then
+	volume=100
+else
+	volume="$2"
+fi
+mplayer -really-quiet -ao pulse -volume "$volume" "$HOME/bin/sounds/$1.aiff" >/dev/null 2>&1 &

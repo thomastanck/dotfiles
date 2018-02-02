@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ -z "$1" ]; then
+	echo "Please enter a stash name"
+	exit
+else
+	stashname="$1"
+fi
+
+i3-msg 'workspace "  '$stashname'  "'

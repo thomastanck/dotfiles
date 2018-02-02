@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# Converts .md to .pdf
+# Get this template https://github.com/Wandmalfarbe/pandoc-latex-template and follow instructions
+
+if [ -z $1 ]; then
+	echo "Usage: $0 FILE.md"
+	echo "Options:"
+	echo "	-N	Numbered sections"
+	exit
+fi
+
+rm $(printf "%s" $1 | sed -e 's/\.[^.]*$/.pdf/')
+
+echo \
+pandoc --template eisvogel --listing \
+$(echo "${@:2}") \
+$1 -o $(printf "%s" $1 | sed -e 's/\.[^.]*$/.pdf/')
+
+pandoc --template eisvogel --listing \
+$(echo "${@:2}") \
+$1 -o $(printf "%s" $1 | sed -e 's/\.[^.]*$/.pdf/')

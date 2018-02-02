@@ -1,0 +1,39 @@
+#!/bin/bash
+
+##############################################################
+## This script lets you copy/paste things on multiple OSes. ##
+## by mort https://github.com/mortie                        ##
+##############################################################
+
+OS=$(uname)
+
+if [ "$1" = "paste" ]; then
+	if [ "$OS" = "Darwin" ]; then
+		pbpaste
+	else
+		xclip -o -selection clipboard
+	fi
+
+#elif [ "$1" = "type" ]; then
+#	if [ "$OS" = "Darwin" ]; then
+#		echo "Unavailable on Darwin."
+#	else
+#		xdotool type $(mclip get)
+#	fi
+
+elif [ "$1" = "get" ]; then
+	if [ "$OS" = "Darwin" ]; then
+		pbpaste
+	else
+		xclip -o -selection clipboard
+	fi
+
+else
+	content=$(cat -)
+
+	if [ "$OS" = "Darwin" ]; then
+		printf "%s" "$content" | pbcopy
+	else
+		printf "%s" "$content" | xclip -selection clipboard >/dev/null 2>&1 &
+	fi
+fi

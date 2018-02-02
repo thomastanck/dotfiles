@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if [ -z "$1" ]; then
+	stashname=$(date +%H%M%S)
+else
+	stashname="$1"
+fi
+
+targetname="$(i3-msg -t get_workspaces | python -c 'import sys,json; print([c["name"] for c in json.load(sys.stdin) if c["visible"]][0]);')"
+
+i3-msg 'rename workspace to "  '$stashname'  "'
+i3-msg 'workspace "'"$targetname"'"'
+

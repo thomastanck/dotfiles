@@ -1,0 +1,2 @@
+maim -i $(xdotool getactivewindow) -o /tmp/maim.png
+play_alert grab

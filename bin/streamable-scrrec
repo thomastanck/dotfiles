@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# To make this work, do `npm install to-streamable` in the to-streamable directory
+
+output="$(node ~/dotfiles/bin/to-streamable/node_modules/to-streamable/src/bin.js --auth="$STREAMABLE_AUTH" --mute /tmp/scrrec.mp4)"
+printf "%s\n" "$output" >> ~/.log/streamable/streamable.log
+printf "%s\n" "$output" | mclip
+printf "%s\n" "$output"
+
+play_alert glass 80

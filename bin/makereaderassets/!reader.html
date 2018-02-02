@@ -1,0 +1,36 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Reader</title>
+<script src="reader/jquery.min.js"></script>
+<link rel=stylesheet href="reader/style.css" type="text/css" media=screen>
+</head>
+
+<body>
+	<div id="pages"></div>
+	<script>
+		contentsreq = $.getJSON("reader/contents.json");
+		configreq = $.getJSON("reader/config.json");
+
+		configreq.done(function(config) {
+			console.log(config);
+
+			contentsreq.done(function(contents) {
+				document.title = contents.title;
+				console.log("Title: " + contents.title);
+
+				if (config.allpages == true) {
+					$.each(contents.contents, function(key, value) {
+						$("#pages").append("<img class=\"page\" src=\"" + value + "\" />");
+					});
+				} else {
+					$("#pages").append("allpages = false not supported.");
+				}
+			});
+
+		});
+	</script>
+</body>
+
+</html>

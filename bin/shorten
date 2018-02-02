@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ -z $1 ]; then
+ shorten=$(mclip paste)
+else
+ shorten=$1
+fi
+curl -F"shorten=$shorten" https://0x0.st | tee >(mclip)

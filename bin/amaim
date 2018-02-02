@@ -1,0 +1,2 @@
+(sleep 1; play_alert grab)&
+maim --delay=1 -o /tmp/maim.png

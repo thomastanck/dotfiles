@@ -1,0 +1,1 @@
+xsetwacom --set $(xsetwacom --list devices | sed -n -e 's/.*stylus.*id:.*\([0-9][0-9]\).*/\1/p') Area 0 0 15200 8550

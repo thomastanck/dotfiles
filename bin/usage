@@ -1,0 +1,1 @@
+cat ~/.bash_history | sed -e 's/^sudo //' -e 's/^\(\S*\).*/\1/' | sort | uniq -c | sort -g -r | head -n 50

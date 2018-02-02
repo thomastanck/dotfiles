@@ -1,0 +1,2 @@
+#!/bin/bash
+ffmpeg -y -f x11grab -r 30 -s 3840x2160 -i "$DISPLAY" -r 30 -s 1280x720 -vcodec libx264 -preset ultrafast -threads 0 -pix_fmt yuv420p /tmp/scrrec.mp4

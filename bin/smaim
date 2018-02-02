@@ -1,0 +1,2 @@
+maim --select -o /tmp/maim.png
+play_alert grab

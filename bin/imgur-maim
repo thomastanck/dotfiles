@@ -1,0 +1,3 @@
+#!/bin/bash
+
+imgur /tmp/maim.png 2>&1 | tee -a ~/.log/imgur/imgur.log

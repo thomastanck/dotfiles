@@ -1,0 +1,2 @@
+setxkbmap dvorak
+setxkbmap -option ctrl:nocaps

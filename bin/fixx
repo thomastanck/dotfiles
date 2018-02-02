@@ -1,0 +1,6 @@
+# Set key repeat rate https://wiki.archlinux.org/index.php/Keyboard_configuration_in_Xorg
+xset r rate 180 40
+
+# https://wiki.archlinux.org/index.php/Keyboard_configuration_in_Xorg#Using_setxkbmap
+setxkbmap dvorak
+setxkbmap -option ctrl:nocaps
