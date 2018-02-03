@@ -119,3 +119,5 @@ au BufRead * normal zR
 
 " Source remappings
 source ~/.vim/usr/remap.vim
+
+autocmd VimEnter * redraw!
