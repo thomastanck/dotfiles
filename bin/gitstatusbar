@@ -1,0 +1,102 @@
+#!/bin/python3
+
+# i3blocks/bar/etc thing that outputs a short version of `git status`
+# of the working directory of the currently focused terminal window
+# Depends on i3ipc and i3blocks https://github.com/acrisci/i3ipc-python
+
+import i3ipc
+
+import sys, json, os, subprocess, time
+
+# Create the Connection object that can be used to send commands and subscribe
+# to events.
+i3 = i3ipc.Connection()
+
+def update(i3, e):
+    focused = i3.get_tree().find_focused()
+    title = focused.name
+
+    if (focused.window_instance != "termite" and
+            focused.window_instance != "xterm"):
+        print('{}', flush=True)
+        return
+
+    username = os.environ['USER']
+    titleprefix = username + ': '
+
+    if not title.startswith(titleprefix):
+        print('{}', flush=True)
+        return
+
+    title = os.path.expanduser(title[3:])
+
+    os.chdir(title)
+
+    s, _ = subprocess.Popen(["git", "status", "--porcelain"], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL).communicate()
+    if len(s) == 0:
+        print('{}', flush=True)
+        return
+    s = s.decode("utf-8")
+
+    stagingcol = [l[:1] for l in s.split("\n")]
+    workingcol = [l[1:2] for l in s.split("\n")]
+
+    untracked = 0
+    newstaged = 0
+    modstaged = 0
+    delstaged = 0
+    for i in stagingcol:
+        if i == "?":
+            untracked += 1
+        if i == "A":
+            newstaged += 1
+        if i == "M":
+            modstaged += 1
+        if i == "D":
+            delstaged += 1
+
+    newworking = 0
+    modworking = 0
+    delworking = 0
+    for i in workingcol:
+        if i == "A":
+            newworking += 1
+        if i == "M":
+            modworking += 1
+        if i == "D":
+            delworking += 1
+
+    output = []
+    if newstaged:
+        output.append(f"A:{newstaged}")
+    if modstaged:
+        output.append(f"M:{modstaged}")
+    if delstaged:
+        output.append(f"D:{delstaged}")
+    if untracked:
+        output.append(f"?:{untracked}")
+    if newworking:
+        output.append(f"a:{newworking}")
+    if modworking:
+        output.append(f"m:{modworking}")
+    if delworking:
+        output.append(f"d:{delworking}")
+    output = " ".join(output)
+
+    if (newstaged or modstaged or delstaged):
+        color = '#0000FF'
+    elif (newworking or modworking or delworking):
+        color = '#00FFFF'
+    elif (untracked):
+        color = '#FF00FF'
+    else:
+        color = '#000000'
+
+    print(json.dumps({
+        "full_text": output,
+        "color": color
+        }), flush=True)
+
+i3.on('window::focus', update)
+update(i3, None)
+i3.main()
