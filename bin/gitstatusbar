@@ -32,8 +32,9 @@ def update(i3, e):
 
     os.chdir(title)
 
-    s, _ = subprocess.Popen(["git", "status", "--porcelain"], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL).communicate()
-    if len(s) == 0:
+    proc = subprocess.Popen(["git", "status", "--porcelain"], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
+    s, _ = proc.communicate()
+    if proc.returncode != 0:
         print('{}', flush=True)
         return
     s = s.decode("utf-8")
@@ -81,21 +82,25 @@ def update(i3, e):
         output.append(f"m:{modworking}")
     if delworking:
         output.append(f"d:{delworking}")
+
     output = " ".join(output)
 
+    if output == "":
+        output = "\u200B" # so the bar appears if there's a git repository, but displays nothing
+
     if (newstaged or modstaged or delstaged):
-        color = '#0000FF'
+        color = '#FFFF00' # yellow on stage
     elif (newworking or modworking or delworking):
-        color = '#00FFFF'
+        color = '#00FFFF' # cyan on modified
     elif (untracked):
-        color = '#FF00FF'
+        color = '#FF00FF' # purple on untracked (dirty)
     else:
-        color = '#000000'
+        color = '#FFFFFF' # if this is shown, nothing would be output regardless
 
     print(json.dumps({
         "full_text": output,
         "color": color
-        }), flush=True)
+        }, ensure_ascii=False), flush=True)
 
 i3.on('window::focus', update)
 update(i3, None)
