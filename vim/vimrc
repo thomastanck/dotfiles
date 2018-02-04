@@ -123,4 +123,5 @@ au BufRead * normal zR
 " Source remappings
 source ~/.vim/usr/remap.vim
 
+" Fix garbage on startup
 autocmd VimEnter * redraw!
