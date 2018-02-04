@@ -62,7 +62,10 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let NERDTreeShowHidden=1
 
 " set colour scheme
-set background=light
+if $TERM == "linux"
+	let g:solarized_termcolors=256
+endif
+set background=dark
 colorscheme solarized
 " colorscheme desert
 
