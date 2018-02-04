@@ -125,3 +125,9 @@ source ~/.vim/usr/remap.vim
 
 " Fix garbage on startup
 autocmd VimEnter * redraw!
+
+" run cspdf on save for .md files for quick homework compilation
+function SetUpCSPDF()
+	autocmd BufWritePost *.md silent exec "!cspdf % >/dev/null 2>&1 &"
+endfunction
+command CSPDF call SetUpCSPDF()
