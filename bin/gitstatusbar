@@ -13,24 +13,36 @@ import sys, json, os, subprocess, time
 i3 = i3ipc.Connection()
 
 def update(i3, e):
-    focused = i3.get_tree().find_focused()
-    title = focused.name
+    # focused = i3.get_tree().find_focused()
+    # title = focused.name
 
-    if (focused.window_instance != "termite" and
-            focused.window_instance != "xterm"):
+    # if not (focused.window_instance == "termite" or
+    #         focused.window_instance == "xterm" or
+    #         focused.window_instance == "st-256color"):
+    #     print('{}', flush=True)
+    #     return
+
+    # print(focused)
+
+    # username = os.environ['USER']
+    # titleprefix = username + ': '
+
+    # if not title.startswith(titleprefix):
+    #     print('{}', flush=True)
+    #     return
+
+    # title = os.path.expanduser(title[3:])
+
+    # os.chdir(title)
+
+    proc = subprocess.Popen(["xpwd"], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
+    s, _ = proc.communicate()
+    if proc.returncode != 0:
         print('{}', flush=True)
         return
+    s = s.decode("utf-8")
 
-    username = os.environ['USER']
-    titleprefix = username + ': '
-
-    if not title.startswith(titleprefix):
-        print('{}', flush=True)
-        return
-
-    title = os.path.expanduser(title[3:])
-
-    os.chdir(title)
+    os.chdir(s)
 
     proc = subprocess.Popen(["git", "status", "--porcelain"], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
     s, _ = proc.communicate()
