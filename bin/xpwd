@@ -1,0 +1,8 @@
+#!/bin/bash
+
+ID=$(xdpyinfo | grep focus | cut -f4 -d " ")
+PID=$(xprop -id $ID | grep -m 1 PID | cut -d " " -f 3)
+PID=$(pgrep -P $PID)
+if [ -e "/proc/$PID/cwd" ]; then
+    echo -n $(readlink /proc/$PID/cwd)
+fi
