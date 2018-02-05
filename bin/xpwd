@@ -1,8 +1,15 @@
 #!/bin/bash
 
 ID=$(xdpyinfo | grep focus | cut -f4 -d " ")
-PID=$(xprop -id $ID | grep -m 1 PID | cut -d " " -f 3)
+XPROP_OUT=$(xprop -id $ID)
+TERMTYPE=$(printf %s "$XPROP_OUT" | grep -m 1 WM_CLASS | cut -d " " -f 3)
+if [[ "$TERMTYPE" == '"termite",' ]]; then
+	DIR=$(printf %s "$XPROP_OUT" | grep -m 1 WM_NAME | sed -e 's/^WM_NAME(STRING) = "u: //' -e 's/"$//')
+	echo -n "${DIR/#\~/$HOME}"
+	exit
+fi
+PID=$(printf %s "$XPROP_OUT" | grep -m 1 PID | cut -d " " -f 3)
 PID=$(pgrep -P $PID)
 if [ -e "/proc/$PID/cwd" ]; then
-    echo -n $(readlink /proc/$PID/cwd)
+	echo -n $(readlink /proc/$PID/cwd)
 fi
