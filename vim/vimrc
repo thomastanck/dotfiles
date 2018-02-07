@@ -131,6 +131,8 @@ autocmd VimEnter * redraw!
 
 " run cspdf on save for .md files for quick homework compilation
 function SetUpCSPDF()
+	silent exec "!cspdf % >/dev/null 2>&1 &"
 	autocmd BufWritePost *.md silent exec "!cspdf % >/dev/null 2>&1 &"
+	redraw!
 endfunction
 command CSPDF call SetUpCSPDF()
