@@ -37,7 +37,7 @@ def update(i3, e):
 
     proc = subprocess.Popen(["xpwd"], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
     s, _ = proc.communicate()
-    if proc.returncode != 0:
+    if proc.returncode != 0 or len(s) == 0:
         print('{}', flush=True)
         return
     s = s.decode("utf-8")
@@ -115,5 +115,6 @@ def update(i3, e):
         }, ensure_ascii=False), flush=True)
 
 i3.on('window::focus', update)
+i3.on('workspace::focus', update) # causes too many events to trigger, but better than missing them ¯\_(ツ)_/¯
 update(i3, None)
 i3.main()
