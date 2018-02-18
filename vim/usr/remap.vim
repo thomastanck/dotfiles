@@ -63,3 +63,6 @@ nnoremap <silent> <Leader>n :NERDTreeFind<CR>
 nnoremap <silent> <Leader>T a<C-r>=substitute(system('date -u +%FT%TZ'), '[\r\n]*$', '', '')<CR><Esc>
 nnoremap <silent> <Leader>t c9iw<C-r>=substitute(system('date -u +%FT%TZ'), '[\r\n]*$', '', '')<CR><Esc>9b
 nnoremap <silent> <Leader>ct /^date = "<CR>:noh<CR>f"lc9iw<C-r>=substitute(system('date -u +%FT%TZ'), '[\r\n]*$', '', '')<CR><Esc>9b
+
+" quick save
+nnoremap eu :w<Enter>
