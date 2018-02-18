@@ -62,6 +62,9 @@ let g:airline#extensions#branch#enabled=1
 " Word count for vim-pandoc filetype
 let g:airline#extensions#wordcount#filetypes = g:airline#extensions#wordcount#filetypes . "|pandoc"
 
+" Disable vim-pandoc styling
+let g:pandoc#syntax#conceal#use = 0
+
 " NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
