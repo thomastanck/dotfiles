@@ -12,11 +12,15 @@ fi
 
 rm $(printf "%s" $1 | sed -e 's/\.[^.]*$/.pdf/')
 
+#pandoc --template eisvogel --listing \
+#pandoc --template homework --listing \
 echo \
-pandoc --template eisvogel --listing \
+pandoc \
 $(echo "${@:2}") \
 $1 -o $(printf "%s" $1 | sed -e 's/\.[^.]*$/.pdf/')
 
-pandoc --template eisvogel --listing \
+#pandoc --template eisvogel --listing \
+#pandoc --template homework --listing \
+pandoc \
 $(echo "${@:2}") \
 $1 -o $(printf "%s" $1 | sed -e 's/\.[^.]*$/.pdf/')
