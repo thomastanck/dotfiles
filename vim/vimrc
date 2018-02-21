@@ -64,6 +64,8 @@ let g:airline#extensions#wordcount#filetypes = g:airline#extensions#wordcount#fi
 
 " Disable vim-pandoc styling
 let g:pandoc#syntax#conceal#use = 0
+" Disable vim-pandoc folding
+let g:pandoc#modules#disabled = ["folding"]
 
 " NERDTree
 autocmd StdinReadPre * let s:std_in=1
