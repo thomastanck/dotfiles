@@ -111,6 +111,10 @@ def permute(n, r):
 	#return fac(n) / fac(n - r)
 	return prod(range(n-r+1, n+1))
 
+F = fac
+C = choose
+P = permute
+
 res=''
 try:
 	res=($cmd)
