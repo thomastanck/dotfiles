@@ -1,1 +1,1 @@
-MOZ_USE_XINPUT2=1 firefox-nightly
+MOZ_USE_XINPUT2=1 firefox
