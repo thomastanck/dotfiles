@@ -151,11 +151,12 @@ command CSPDF call SetUpCSPDF()
 
 " run make on save
 function SetUpAutoMake()
-	silent exec "!make % >/tmp/testlog 2>&1 &"
-	autocmd BufWritePost * silent exec "!make % >/tmp/testlog 2>&1 &"
+	silent exec "!make AutoMake-% >/tmp/testlog 2>&1 &"
+	autocmd BufWritePost * silent exec "!make AutoMake-% >/tmp/testlog 2>&1 &"
 	redraw!
 endfunction
 command AutoMake call SetUpAutoMake()
+call SetUpAutoMake()
 
 function! s:get_visual_selection()
 	" Why is this not a built-in Vim script function?!
