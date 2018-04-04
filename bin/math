@@ -1,0 +1,41 @@
+#!/bin/sh
+
+python -i -c "
+from functools import reduce
+import operator
+import math
+from math import ceil, floor, log, log10, pow, sqrt, \
+	cos, sin, tan, acos, asin, atan, atan2, hypot, degrees, radians, \
+	pi, e
+
+def digit_to_char(digit):
+	if digit < 10:
+		return str(digit)
+	return chr(ord('a') + digit - 10)
+
+def base(num, b=16):
+	if num < 0:
+		return '-' + base(-num, b)
+	(d, m) = divmod(num, b)
+	if d > 0:
+		return base(d, b) + digit_to_char(m)
+	return digit_to_char(m)
+
+def prod(l):
+	return reduce(operator.mul, l)
+
+def fac(n):
+	return prod(range(1, n+1))
+
+def choose(n, r):
+	#return fac(n) / fac(r) / fac(n - r)
+	return prod(range(r+1, n+1)) / fac(n - r)
+
+def permute(n, r):
+	#return fac(n) / fac(n - r)
+	return prod(range(n-r+1, n+1))
+
+F = fac
+C = choose
+P = permute
+"
