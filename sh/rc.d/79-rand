@@ -1,3 +1,11 @@
 alias rand="LC_ALL=C tr -dc A-Za-z0-9_- < /dev/urandom | head -c $1"
 alias easyrand="LC_ALL=C tr -dc a-z < /dev/urandom | head -c $1"
-alias npass="easyrand 20 | mclip"
+function npass {
+  if [ -z $1 ]; then
+    easyrand 20 | tee >(mclip)
+    echo
+  else
+    easyrand $1 | tee >(mclip)
+    echo
+  fi
+}
