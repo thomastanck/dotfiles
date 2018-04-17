@@ -31,12 +31,21 @@ if [[ $platform == "solaris" && $TERM == "xterm-termite" ]]; then
   color_prompt=yes
 fi
 
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;38;2;42;161;152m\]\u\[\033[00m\]@\[\033[01;38;2;42;161;152m\]\h\[\033[00m\] \[\033[01;38;2;39;139;210m\]$(pwd | sed -e "s\$$(readlink -f "$HOME")\$~\$" -e "s\$$HOME\$~\$") \$\[\033[00m\] '
-    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\] \[\033[01;34m\]$(pwd | sed -e "s\$$(readlink -f "$HOME")\$~\$" -e "s\$$HOME\$~\$") \$\[\033[00m\] '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+debian_chroot_ps='${debian_chroot:+($debian_chroot)}'
+username_ps='\u'
+if [ "$computer" != "xps15" ]; then
+    namesep_ps='@'
+    hostname_ps='\h'
 fi
+pwd_ps=' $(pwd | sed -e "s\$$(readlink -f "$HOME")\$~\$" -e "s\$$HOME\$~\$")'
+prompt_ps=' $ '
+if [ "$color_prompt" = yes ]; then
+    username_ps='\[\033[01;38;2;42;161;152m\]'"$username_ps"'\[\033[00m\]'
+    hostname_ps='\[\033[01;38;2;42;161;152m\]'"$hostname_ps"'\[\033[00m\]'
+    pwd_ps='\[\033[01;38;2;39;139;210m\]'"$pwd_ps"'\[\033[00m\]'
+    prompt_ps='\[\033[01;38;2;39;139;210m\]'"$prompt_ps"'\[\033[00m\]'
+fi
+PS1="${debian_chroot_ps}${username_ps}${namesep_ps}${hostname_ps}${pwd_ps}${prompt_ps}"
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user:dir
