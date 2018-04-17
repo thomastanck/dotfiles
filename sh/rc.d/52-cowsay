@@ -1,15 +1,17 @@
 # cowsay fun
-if [[ $computer == "pi" ]]; then
-	cowsay "Moo moo moo, welcome back pi."
-elif [[ $computer == "gracefu" ]]; then
-	cowsay "Yo wassap."
-elif [[ $computer == "xps15" ]]; then
-	cowsay "Do your fucking homework."
-elif [[ $computer == "pysweeper" ]]; then
-	cowsay "Sweep sweep... sigh, there's so much cleaning to do..."
-elif [[ $computer == "sunfire" ]]; then
-	echo -n
-	# do nothing
-else
-	cowsay "Serious business only."
+if command -v cowsay >/dev/null; then
+	if [[ $computer == "pi" ]]; then
+		cowsay "Moo moo moo, welcome back pi."
+	elif [[ $computer == "gracefu" ]]; then
+		cowsay "Yo wassap."
+	elif [[ $computer == "xps15" ]]; then
+		cowsay "Do your fucking homework."
+	elif [[ $computer == "pysweeper" ]]; then
+		cowsay "Sweep sweep... sigh, there's so much cleaning to do..."
+	elif [[ $computer == "sunfire" ]]; then
+		echo -n
+		# do nothing
+	else
+		cowsay "Serious business only."
+	fi
 fi
