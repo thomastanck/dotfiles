@@ -1,7 +1,9 @@
 # Make terminal pretty
 
 # tmux -2 forces tmux to assume the terminal supports 256 colours
-alias tmux="tmux -2"
+if command -v tmux >/dev/null; then
+	alias tmux="tmux -2"
+fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
