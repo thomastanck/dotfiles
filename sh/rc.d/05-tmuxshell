@@ -1,14 +1,12 @@
+#!/bin/bash
 # Open tmux sessions automatically on servers
-if [[ $computer == "pi" ]]; then
-	if command -v tmux>/dev/null; then
-		[[ ! $TERM =~ screen ]] && [ -z $TMUX ] &&
-		tmux -2 new -A -s pi
-	fi
-fi
+if command -v tmux>/dev/null; then
+	if [[ $computer == "pi" ]] ||
+		[[ $computer == "pysweeper" ]] ||
+		[[ $computer == "compcluster" ]]; then
 
-if [[ $computer == "pysweeper" ]]; then
-	if command -v tmux>/dev/null; then
-		[[ ! $TERM =~ screen ]] && [ -z $TMUX ] &&
-		tmux -2 new -A -s sweep
+		[[ ! $TERM =~ screen ]] &&
+			[ -z $TMUX ] &&
+			( tmux -2 attach || tmux -2 new )
 	fi
 fi
