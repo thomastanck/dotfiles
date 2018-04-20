@@ -29,5 +29,9 @@ popd()
 }
 
 alias cd='pushd'
+function cdl {
+	pushd "$@"
+	ls
+}
 alias back='popd'
 alias flip='pushd_builtin'
