@@ -52,9 +52,6 @@ endif
 syntax enable
 "filetype plugin on
 
-" gitgutter line highlights
-let g:gitgutter_highlight_lines = 1
-
 " gitgutter realtime updates
 set updatetime=100
 
