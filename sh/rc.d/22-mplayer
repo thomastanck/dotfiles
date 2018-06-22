@@ -1,1 +1,2 @@
-alias mplayer='mplayer -fs -ass'
+alias mplayer='mplayer -ao pulse -fs -ass'
+alias aplayer='mplayer -ao pulse -novideo'
