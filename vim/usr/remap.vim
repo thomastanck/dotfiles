@@ -13,8 +13,8 @@ inoremap <Right> <NOP>
 " Fast split resizing
 nnoremap <Up> <C-w>+
 nnoremap <Down> <C-w>-
-nnoremap <Left> <C-w><
-nnoremap <Right> <C-w>>
+nnoremap <Left> <C-w>5<
+nnoremap <Right> <C-w>5>
 
 " Make j and k work on visual lines.
 nnoremap k gk
