@@ -9,7 +9,12 @@
 	default = simple
 [diff]
 	algorithm = histogram
+	tool = vimdiff
 [pull]
 	rebase = true
 [commit]
 	gpgsign = true
+[difftool]
+	prompt = false
+[alias]
+	d = difftool
