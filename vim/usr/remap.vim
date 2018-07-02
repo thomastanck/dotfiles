@@ -69,3 +69,7 @@ nnoremap <silent> <Leader>ct /^date = "<CR>:noh<CR>f"lc9iw<C-r>=substitute(syste
 
 " quick save
 nnoremap eu :w<Enter>
+
+" easy align
+nmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
