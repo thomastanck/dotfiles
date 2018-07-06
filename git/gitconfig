@@ -5,6 +5,7 @@
 [core]
 	editor = vim +startinsert
 	excludesfile = ~/.gitignore
+	pager = less -+X -K
 [push]
 	default = simple
 [diff]
@@ -18,3 +19,5 @@
 	prompt = false
 [alias]
 	d = difftool
+[merge]
+	tool = vimdiff
