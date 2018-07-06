@@ -114,7 +114,9 @@ def update(i3, e):
         "color": color
         }, ensure_ascii=False), flush=True)
 
+i3.on('window::title', update)
 i3.on('window::focus', update)
+i3.on('window::close', update)
 i3.on('workspace::focus', update) # causes too many events to trigger, but better than missing them ¯\_(ツ)_/¯
 update(i3, None)
 i3.main()
