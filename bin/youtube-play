@@ -1,0 +1,10 @@
+#!/bin/bash
+# Released under the WTFPL, without any warranty of any kind.
+
+# Do not use more than half the available RAM (buffers/cache not included) for caching
+eval "$(sed 's/^\([^:]*\):[[:space:]]*\([0-9]*\).*$/\1=\2/;s/(//;s/)//' /proc/meminfo)"
+halfram="$(( (MemFree+Buffers+SReclaimable+Cached-Shmem) / 2 ))"
+#halfram="$(($(free |grep 'buffers/cache' |awk -F " " '{print $NF}')/2))"
+# mplayer doesn't support more than 1G of cache
+[ "$halfram" -gt "1048576" ] && halfram=1048576
+youtube-dl "${1}" -o -|mplayer -cache ${halfram} -cache-min 512/${halfram} -cache-seek-min 10 -
