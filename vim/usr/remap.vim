@@ -35,15 +35,17 @@ nnoremap <C-c> :noh<Enter><C-c>
 
 " Replay the q macro, which can be recorded with qq<macro>q
 nnoremap <Space> @q
+
 " Easier to type commands with enter key than with shift+;
+" or mabybe not...
 " nnoremap : <NOP>
-nnoremap <Enter> :
-nnoremap <Enter><Enter> :!
-nnoremap <Enter><Enter><Enter> <Enter>
-nnoremap <Enter>f<Space> :find 
-vnoremap <Enter> :
-vnoremap <Enter><Enter> :!
-vnoremap <Enter><Enter><Enter> <Enter>
+" nnoremap <Enter> :
+" nnoremap <Enter><Enter> :!
+" nnoremap <Enter><Enter><Enter> <Enter>
+" nnoremap <Enter>f<Space> :find 
+" vnoremap <Enter> :
+" vnoremap <Enter><Enter> :!
+" vnoremap <Enter><Enter><Enter> <Enter>
 
 " Reordering lines
 "nnoremap <C-j> :m +1<Enter>
