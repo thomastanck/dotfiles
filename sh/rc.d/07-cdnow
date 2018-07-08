@@ -1,0 +1,3 @@
+if [ -L "$HOME/now" ]; then
+	cd $(readlink "$HOME/now")
+fi
