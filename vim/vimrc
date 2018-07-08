@@ -27,6 +27,7 @@ if system('whoami | tr -d [:space:]') != 'root'
 	Plugin 'vim-airline/vim-airline-themes'
 
 	Plugin 'tpope/vim-fugitive' " Git integration
+	Plugin 'tpope/vim-rhubarb' " GitHub integration
 	Plugin 'airblade/vim-gitgutter'
 	Plugin 'Valloric/YouCompleteMe'
 	Plugin 'scrooloose/nerdtree'
