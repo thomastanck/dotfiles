@@ -1,2 +1,3 @@
 (sleep 1; play_alert grab)&
 maim --delay=1 -o /tmp/maim.png
+xclip -selection clipboard -t image/png < /tmp/maim.png >/dev/null 2>&1 &
