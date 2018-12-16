@@ -4,9 +4,10 @@
 
 rm -r reader
 rm \!reader.html
+contents=$(python -c 'import os, json; print(json.dumps({"title": os.getcwd(), "contents": sorted(os.listdir(), key=lambda x: (int(x.split(".")[0]), x))}, indent=4))')
+printf "%s" "$contents" > contents.json
 mkdir reader
-contents=$(python -c 'import os, json; print(json.dumps({"title": os.getcwd(), "contents": sorted(os.listdir())}, indent=4))')
-printf "%s" "$contents" > reader/contents.json
+mv contents.json reader
 cp ~/dotfiles/bin/makereaderassets/\!reader.html \!reader.html
 ln -s ~/dotfiles/bin/makereaderassets/jquery-3.2.1.min.js reader/jquery.min.js
 ln -s ~/dotfiles/bin/makereaderassets/style.css reader/style.css

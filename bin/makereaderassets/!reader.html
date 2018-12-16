@@ -22,6 +22,7 @@
 
 				if (config.allpages == true) {
 					$.each(contents.contents, function(key, value) {
+						$("#pages").append("<p>"+value+"</p>");
 						$("#pages").append("<img class=\"page\" src=\"" + value + "\" />");
 					});
 				} else {
