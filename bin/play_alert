@@ -10,4 +10,4 @@ if [[ -z "$2" ]]; then
 else
 	volume="$2"
 fi
-mplayer -really-quiet -ao pulse -volume "$volume" "$HOME/bin/sounds/$1.aiff" >/dev/null 2>&1 &
+mpv -really-quiet -ao pulse -volume "$volume" "$HOME/bin/sounds/$1.aiff" >/dev/null 2>&1 &
