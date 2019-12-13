@@ -1,3 +1,4 @@
+N=9999
+while [ -e "/tmp/maim${N}.png" ]; do N=$(( N - 1 )); done
 (sleep 1; play_alert grab)&
-maim --delay=1 -o /tmp/maim.png
-xclip -selection clipboard -t image/png < /tmp/maim.png >/dev/null 2>&1 &
+maim --delay=1 -o "/tmp/maim${N}.png"
