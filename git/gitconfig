@@ -3,7 +3,7 @@
 	name = Thomas Tan
 	signingkey = B637BBF6D802013F5D1203CBA040BC34D269C351
 [core]
-	editor = vim +startinsert
+	editor = vim
 	excludesfile = ~/.gitignore
 	pager = less -+X -K
 [push]
@@ -19,5 +19,6 @@
 	prompt = false
 [alias]
 	d = difftool
+	psuh = push
 [merge]
 	tool = vimdiff

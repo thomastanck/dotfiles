@@ -11,3 +11,6 @@
 
 # vim swap
 *.swp
+
+# local vimrc
+.lvimrc
