@@ -16,6 +16,10 @@ nnoremap <Down> <C-w>-
 nnoremap <Left> <C-w>5<
 nnoremap <Right> <C-w>5>
 
+" Tab navigation
+nnoremap <A-Left> :tabprevious<CR>
+nnoremap <A-Right> :tabnext<CR>
+
 " Make j and k work on visual lines.
 nnoremap k gk
 nnoremap j gj

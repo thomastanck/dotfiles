@@ -26,6 +26,12 @@ if system('whoami | tr -d [:space:]') != 'root'
 	Plugin 'vim-airline/vim-airline'
 	Plugin 'vim-airline/vim-airline-themes'
 
+	Plugin 'vim-syntastic/syntastic'
+
+	Plugin 'embear/vim-localvimrc'
+
+	Plugin 'elixir-editors/vim-elixir'
+
 	Plugin 'tpope/vim-fugitive' " Git integration
 	Plugin 'tpope/vim-rhubarb' " GitHub integration
 	Plugin 'airblade/vim-gitgutter'
@@ -36,10 +42,17 @@ if system('whoami | tr -d [:space:]') != 'root'
 
 	Plugin 'tpope/vim-commentary'
 
+	Plugin 'idris-hackers/idris-vim'
+
 	Plugin 'fatih/vim-go'
+
+	Plugin 'rust-lang/rust.vim'
+	Plugin 'cespare/vim-toml'
 
 	Plugin 'vim-pandoc/vim-pandoc'
 	Plugin 'vim-pandoc/vim-pandoc-syntax'
+
+	Plugin 'lervag/vimtex'
 
 	Plugin 'leafgarland/typescript-vim'
 	Plugin 'Quramy/tsuquyomi'
@@ -53,7 +66,22 @@ if system('whoami | tr -d [:space:]') != 'root'
 endif
 
 syntax enable
-"filetype plugin on
+filetype plugin on
+
+" vim-syntastic recommended settings
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Disable tex checkers since they're ANNOYING AF and don't work...
+let g:syntastic_tex_checkers = []
+
+let g:localvimrc_persistent = 1
+
+let g:vimtex_view_general_viewer = 'okular'
+let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+let g:vimtex_view_general_options_latexmk = '--unique'
 
 " gitgutter realtime updates
 set updatetime=100
@@ -80,7 +108,8 @@ let g:airline_section_y=""
 let g:airline_section_z="%l/%L:%v"
 
 " Word count for vim-pandoc filetype
-let g:airline#extensions#wordcount#filetypes = g:airline#extensions#wordcount#filetypes . "|pandoc"
+" call add(g:airline#extensions#wordcount#filetypes, "pandoc")
+" let g:airline#extensions#wordcount#filetypes = g:airline#extensions#wordcount#filetypes . "|pandoc"
 
 " Disable vim-pandoc styling
 let g:pandoc#syntax#conceal#use = 0
@@ -91,6 +120,9 @@ let g:pandoc#modules#disabled = ["folding"]
 autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let NERDTreeShowHidden=1
+
+" Make parinfer work on .coc files
+autocmd BufRead,BufNewFile *.coc setfiletype coc
 
 " set colour scheme
 if $TERM == "linux"
@@ -131,7 +163,7 @@ set keywordprg=":help" " c_K runs this command on the word under the cursor
 
 set path^=** " :find recursively into subdirectories.
 set wildmenu " Show autocomplete options in a menu
-set wildignore+=*.pyc " Don't autocomplete to *.pyc files
+set wildignore+=*.pyc,*.hi,*.o,*.aux,*.log,*.out " Don't autocomplete to *.pyc, etc. files
 
 set scrolloff=3 " Show 3 lines of context when scrolling
 set relativenumber " Show relative line numbers on the left of the buffer
@@ -183,4 +215,14 @@ function! s:get_visual_selection()
 	return join(lines, "\n")
 endfunction
 
+function AutoSave()
+	inoremap <C-c> <C-c>:w<Return>
+	inoremap <Esc> <Esc>:w<Return>
+endfunction
+command AutoSave call AutoSave()
+
 command -range Clip call system('mclip', s:get_visual_selection())
+
+autocmd VimEnter * :redraw!
+
+command W :w
