@@ -35,21 +35,27 @@ def update(i3, e):
 
     # os.chdir(title)
 
-    proc = subprocess.Popen(["xpwd"], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
-    s, _ = proc.communicate()
-    if proc.returncode != 0 or len(s) == 0:
+    try:
+        s = subprocess.check_output(
+                ["xpwd"],
+                stderr=subprocess.DEVNULL
+                ).decode("utf-8")
+
+        os.chdir(s)
+
+        s = subprocess.check_output(
+                ["git", "status", "--porcelain"],
+                stderr=subprocess.DEVNULL
+                ).decode("utf-8")
+
+        branchname = subprocess.check_output(
+                ["git", "rev-parse", "--abbrev-ref", "HEAD"],
+                stderr=subprocess.DEVNULL
+                ).decode("utf-8").strip()
+
+    except:
         print('{}', flush=True)
         return
-    s = s.decode("utf-8")
-
-    os.chdir(s)
-
-    proc = subprocess.Popen(["git", "status", "--porcelain"], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
-    s, _ = proc.communicate()
-    if proc.returncode != 0:
-        print('{}', flush=True)
-        return
-    s = s.decode("utf-8")
 
     stagingcol = [l[:1] for l in s.split("\n")]
     workingcol = [l[1:2] for l in s.split("\n")]
@@ -79,7 +85,7 @@ def update(i3, e):
         if i == "D":
             delworking += 1
 
-    output = []
+    output = [branchname]
     if newstaged:
         output.append(f"A:{newstaged}")
     if modstaged:
