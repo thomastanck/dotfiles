@@ -104,11 +104,9 @@ def fac(n):
 	return prod(range(1, n+1))
 
 def choose(n, r):
-	#return fac(n) / fac(r) / fac(n - r)
-	return prod(range(r+1, n+1)) / fac(n - r)
+	return prod(range(r+1, n+1)) // fac(n - r)
 
 def permute(n, r):
-	#return fac(n) / fac(n - r)
 	return prod(range(n-r+1, n+1))
 
 F = fac
