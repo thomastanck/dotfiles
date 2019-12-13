@@ -4,7 +4,19 @@
 
 rm -r reader
 rm \!reader.html
-contents=$(python -c 'import os, json; print(json.dumps({"title": os.getcwd(), "contents": sorted(os.listdir(), key=lambda x: (int(x.split(".")[0]), x))}, indent=4))')
+contents=$(python -c '
+import os, json
+def sortkey(x):
+  try:
+    return (int(x.split(".")[0]), x)
+  except:
+    return (-1, x)
+print(
+  json.dumps(
+    {
+      "title": os.getcwd(),
+      "contents": sorted(os.listdir(), key=sortkey)
+    }, indent=4))')
 printf "%s" "$contents" > contents.json
 mkdir reader
 mv contents.json reader
