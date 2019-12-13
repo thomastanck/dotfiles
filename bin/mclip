@@ -34,6 +34,6 @@ else
 	if [ "$OS" = "Darwin" ]; then
 		printf "%s" "$content" | pbcopy
 	else
-		printf "%s" "$content" | xclip -selection clipboard >/dev/null 2>&1 &
+		printf "%s" "$content" | nohup xclip -selection clipboard >/dev/null 2>&1 &
 	fi
 fi
