@@ -22,6 +22,3 @@ ln -sfn "$MY_PATH/vim/usr" ~/.vim/usr
 [ -h ~/.profile ] || mv ~/.profile ~/.profile-old
 ln -sfn "$MY_PATH/sh/bashrc" ~/.bashrc
 ln -sfn "$MY_PATH/sh/profile" ~/.profile
-
-# Vimperator
-ln -sfn "$MY_PATH/vimperator/vimperatorrc.local" ~/.vimperatorrc.local
